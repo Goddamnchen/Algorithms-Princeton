@@ -1,2 +1,3 @@
-#ALGORITHMS-JAVA
-@author Belkacem Lahouel, belkacem.lahouel@gmail.com
+#Algorithms in Java
+Belkacem Lahouel, 2016
+belkacem.lahouel@gmail.com

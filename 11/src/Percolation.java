@@ -4,7 +4,9 @@ import edu.princeton.cs.algs4.*;
 public class Percolation {
 	
 	private boolean[][] grid;
-	private WeightedQuickUnionUF uf;
+	private WeightedQuickUnionUF uf; //only to manage percolation
+	private WeightedQuickUnionUF uf_con; //only to manage full/connection
+	private final int size_sq;
 	
 	/**
 	 * Create n-by-n grid with all sites blocked
@@ -21,7 +23,10 @@ public class Percolation {
 			}
 		}
 		
-		uf = new WeightedQuickUnionUF(n+2);
+		size_sq = n*n;
+		
+		uf = new WeightedQuickUnionUF(size_sq+2);
+		uf_con = new WeightedQuickUnionUF(size_sq+1);
 	}
 	
 	/**
@@ -40,23 +45,34 @@ public class Percolation {
 		if (!grid[is][js]) {
 			grid[is][js] = true;
 			
-			if (is == 0)
-				uf.union(grid.length, gridToArray(is, js)); //first virtual site
+			if (is == 0) {
+				uf.union(size_sq, gridToArray(is, js)); //first virtual site: top
+				uf_con.union(size_sq, gridToArray(is, js));
+			}
 			
-			if (is == grid.length-1)
-				uf.union(grid.length+1, gridToArray(is, js)); //second virtual site
+			if (is == grid.length-1) {
+				uf.union(size_sq+1, gridToArray(is, js)); //second virtual site: bot
+			}
 			
-			if (is > 0 && grid[is-1][js])
+			if (is > 0 && grid[is-1][js]) {
 				uf.union(gridToArray(is, js), gridToArray(is-1, js));
+				uf_con.union(gridToArray(is, js), gridToArray(is-1, js));
+			}
 			
-			if (is < grid.length-1 && grid[is+1][js])
+			if (is < grid.length-1 && grid[is+1][js]) {
 				uf.union(gridToArray(is, js), gridToArray(is+1, js));
+				uf_con.union(gridToArray(is, js), gridToArray(is+1, js));
+			}
 			
-			if (js > 0 && grid[is][js-1])
+			if (js > 0 && grid[is][js-1]) {
 				uf.union(gridToArray(is, js), gridToArray(is, js-1));
+				uf_con.union(gridToArray(is, js), gridToArray(is, js-1));
+			}
 			
-			if (js < grid.length-1 && grid[is][js+1])
+			if (js < grid.length-1 && grid[is][js+1]) {
 				uf.union(gridToArray(is, js), gridToArray(is, js+1));
+				uf_con.union(gridToArray(is, js), gridToArray(is, js+1));
+			}
 		}
 	}
 	
@@ -89,7 +105,7 @@ public class Percolation {
 		int is = i-1;
 		int js = j-1;
 		
-		return uf.connected(grid.length+1, gridToArray(is, js));
+		return uf_con.connected(size_sq, gridToArray(is, js));
 	}
 	
 	/**
@@ -97,7 +113,7 @@ public class Percolation {
 	 * @return true if system percolates, meaning one 0-line case connected with one n-1-case
 	 */
 	public boolean percolates() {
-		return uf.connected(grid.length, grid.length+1);
+		return uf.connected(size_sq, size_sq+1);
 	}
 	
 	/**

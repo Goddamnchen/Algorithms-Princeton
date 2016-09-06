@@ -25,6 +25,15 @@ public class PercolationStats {
 	}
 	
 	/**
+	 * sample std deviation of percolation threshold
+	 * @return std dev
+	 */
+	public double stddev() {
+		//TODO
+		return 0;
+	}
+	
+	/**
 	 * low endpoint of 95% confidence interval
 	 * @return low endpoint of 95% confidence interval
 	 */

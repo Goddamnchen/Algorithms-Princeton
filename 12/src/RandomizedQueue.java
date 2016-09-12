@@ -3,7 +3,7 @@ import java.util.Iterator;
 import edu.princeton.cs.algs4.StdRandom;
 
 
-public class RandomizedQueue<Item> {
+public class RandomizedQueue<Item> implements Iterable<Item> {
 
 	private final static int CAPA0 = 10;
 	
@@ -62,7 +62,7 @@ public class RandomizedQueue<Item> {
 		if (rnd < n)
 			tab[rnd] = tab[n-1];
 		
-		tab[n--] = null;
+		tab[--n] = null;
 		return ans;
 	}
 	
@@ -74,29 +74,32 @@ public class RandomizedQueue<Item> {
 		return tab[rnd];
 	}
 	
-	private class ItemIterator implements Iterator<Item> {
+	private class RQItemIterator implements Iterator<Item> {
 
-		private int cur = 0;
+		private int cur = n-1;
 		private int[] idx = new int[n];
 		
-		public ItemIterator() {
+		public RQItemIterator() {
 			for (int i = 0; i < n; ++i)
 				idx[i] = i;
-			
-			StdRandom.shuffle(idx);
 		}
 		
 		@Override
 		public boolean hasNext() {
-			return cur < idx.length;
+			return cur >= 0;
 		}
 
 		@Override
 		public Item next() {
 			if (!hasNext())
 				throw new java.util.NoSuchElementException();
+						
+			int rnd = StdRandom.uniform(cur+1);
+			int ans = idx[rnd];
 			
-			return tab[idx[cur]];
+			idx[rnd] = idx[cur--];
+			
+			return tab[ans];
 		}
 		
 		@Override
@@ -107,18 +110,28 @@ public class RandomizedQueue<Item> {
 	}
 	
 	public Iterator<Item> iterator() {
-		return new ItemIterator();
+		return new RQItemIterator();
 	}
 	
 	public static void main(String[] args) {
 		RandomizedQueue<Integer> rq = new RandomizedQueue<>();
+		for (int j = 0; j < 1; ++j) {
+			for (int i = 0; i < CAPA0; ++i)
+				rq.enqueue(i);
+			
+			for (int i = 0; i < CAPA0; ++i)
+				System.out.print(rq.dequeue() + " ");
+			System.out.println();
+		}
+		
+		System.out.println("---");
+		
 		for (int i = 0; i < CAPA0; ++i)
 			rq.enqueue(i);
 		
-		rq.enqueue(11);
-		
-		for (int i = 0; i < CAPA0+1; ++i)
-			System.out.println(rq.dequeue());
+		for (Integer tmp : rq)
+			System.out.print(tmp + " ");
+		System.out.println();
 		
 		System.out.println(StdRandom.uniform());
 	}

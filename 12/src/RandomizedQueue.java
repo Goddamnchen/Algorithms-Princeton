@@ -24,6 +24,9 @@ public class RandomizedQueue<Item> {
 	}
 	
 	public void enqueue(Item item) {
+		if (item == null)
+			throw new java.lang.NullPointerException();
+		
 		if (n == tab.length)
 			double_array();
 		
@@ -47,6 +50,9 @@ public class RandomizedQueue<Item> {
 	}
 	
 	public Item dequeue() {
+		if (isEmpty())
+			throw new java.util.NoSuchElementException();
+		
 		if (n < 0.25*tab.length && n > 3)
 			divide_array();
 		
@@ -61,6 +67,9 @@ public class RandomizedQueue<Item> {
 	}
 	
 	public Item sample() {
+		if (isEmpty())
+			throw new java.util.NoSuchElementException();
+		
 		int rnd = StdRandom.uniform(n);
 		return tab[rnd];
 	}
@@ -84,6 +93,9 @@ public class RandomizedQueue<Item> {
 
 		@Override
 		public Item next() {
+			if (!hasNext())
+				throw new java.util.NoSuchElementException();
+			
 			return tab[idx[cur]];
 		}
 		

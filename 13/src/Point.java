@@ -68,7 +68,7 @@ public class Point implements Comparable<Point> {
         if (y == that.y)
         	return +0.0;
         
-        return (that.y - y)/(that.x -x);
+        return ((double) (that.y - y))/((double) (that.x -x));
     }
 
     /**
@@ -135,31 +135,10 @@ public class Point implements Comparable<Point> {
         /* DO NOT MODIFY */
         return "(" + x + ", " + y + ")";
     }
-
-    /**
-     * You should not call the hashCode() method on this assignment.
-     * This means that you should not use java.util.HashMap or java.util.HashSet.
-     *
-     * @return a string representation of this point
-     */
-    public int hashCode() {
-        /* DO NOT MODIFY */
-        throw new UnsupportedOperationException("calling hashCode() is not permitted on this assignment");
-    }
-
-    /**
-     * You should not call the equals() method on this assignment.
-     * This means that you should not use java.util.TreeMap or java.util.TreeSet.
-     */
-    public boolean equals(Object that) {
-        /* DO NOT MODIFY */
-        throw new UnsupportedOperationException("calling equals() is not permitted on this assignment");
-    }
     
     private boolean _equals(Point that) {
     	return x == that.x && y == that.y;
     }
-
 
     /**
      * Unit tests the Point data type.

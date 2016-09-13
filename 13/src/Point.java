@@ -10,7 +10,6 @@
 
 import java.util.Comparator;
 import edu.princeton.cs.algs4.StdDraw;
-import edu.princeton.cs.algs4.StdStats;
 
 public class Point implements Comparable<Point> {
 
@@ -60,7 +59,7 @@ public class Point implements Comparable<Point> {
      * @return the slope between this point and the specified point
      */
     public double slopeTo(Point that) {
-        if (equals(that))
+        if (_equals(that))
         	return Double.NEGATIVE_INFINITY;
         
         if (x == that.x)
@@ -155,6 +154,10 @@ public class Point implements Comparable<Point> {
     public boolean equals(Object that) {
         /* DO NOT MODIFY */
         throw new UnsupportedOperationException("calling equals() is not permitted on this assignment");
+    }
+    
+    private boolean _equals(Point that) {
+    	return x == that.x && y == that.y;
     }
 
 

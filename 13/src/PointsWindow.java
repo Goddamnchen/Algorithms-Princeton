@@ -6,7 +6,6 @@ public class PointsWindow {
 		Point[] points = {new Point(10000, 0), new Point(0, 10000), new Point(3000, 7000), new Point(7000, 3000), new Point(20000, 21000), new Point(3000, 4000), new Point(14000, 15000), new Point(6000, 7000)};
 		
 		StdDraw.enableDoubleBuffering();
-		StdDraw.show();
 		StdDraw.setXscale(0, 32768);
 		StdDraw.setYscale(0, 32768);
 		

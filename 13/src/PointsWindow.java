@@ -15,7 +15,7 @@ public class PointsWindow {
 		}
 		StdDraw.show();
 		
-		BruteCollinearPoints bruteSegs = new BruteCollinearPoints(points);
+		FastCollinearPoints bruteSegs = new FastCollinearPoints(points);
 		for(LineSegment l : bruteSegs.segments()){
 			System.out.println(l);
 			l.draw();

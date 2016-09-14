@@ -35,13 +35,17 @@ public class FastCollinearPoints {
 				cur.add(q);
 				
 				int k = j+1;
-				while (k < points.length-2 && slopePQ == p.slopeTo(points[k])) {
+				while (k < points.length && slopePQ == p.slopeTo(points[k])) {
 					cur.add(points[k]);
 					++k;
 				}
 				
 				if (cur.size() > 3) {
-					Point[] curarr = (Point[]) cur.toArray();
+					Point[] curarr = new Point[cur.size()];
+					for (int a = 0; a < cur.size(); ++a) {
+						curarr[a] = cur.get(a);
+					}
+					
 					Arrays.sort(curarr);
 					LineSegment seg = new LineSegment(curarr[0], curarr[curarr.length-1]);
 					tmp.add(seg);

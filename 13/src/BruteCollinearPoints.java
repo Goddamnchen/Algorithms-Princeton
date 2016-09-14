@@ -15,7 +15,7 @@ public class BruteCollinearPoints {
 		}
 	}
 		
-	private LineSegment[] segments;
+	private final LineSegment[] segments;
 	
 	public BruteCollinearPoints(Point[] points) {
 		if (points == null)
@@ -51,7 +51,7 @@ public class BruteCollinearPoints {
 							double slopePR = p.slopeTo(r);
 							double slopePS = p.slopeTo(s);
 							
-							if (slopePQ - slopePR < epsi && slopePQ - slopePS < epsi) {
+							if ((slopePQ == slopePR && slopePQ == slopePS)) {
 								Point[] four = new Point[4];
 								four[0] = p;
 								four[1] = q;

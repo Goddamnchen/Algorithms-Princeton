@@ -2,9 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class BruteCollinearPoints {
-	
-	private static final double epsi = 0.001;
-	
+		
 	private class MyLineSegment {
 				
 		public Point p1, p2;
@@ -86,6 +84,6 @@ public class BruteCollinearPoints {
 	}
 	
 	public LineSegment[] segments() {
-		return segments;
+		return segments.clone();
 	}
 }

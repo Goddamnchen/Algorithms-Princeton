@@ -44,7 +44,7 @@ public class FastCollinearPoints {
 		
 		//--- checks done
 		
-		version2(points);
+		version3(points);
 	}
 	
 	public int numberOfSegments() {
@@ -53,6 +53,56 @@ public class FastCollinearPoints {
 	
 	public LineSegment[] segments() {
 		return segments.clone();
+	}
+	
+	private void version3(Point[] points) {
+		HashMap<Point, ArrayList<Double>> tmp = new HashMap<>();
+		
+		for (int i = 0; i < points.length; ++i) {
+			Point p = points[i];
+			Arrays.sort(points, p.slopeOrder());
+			
+			for (int j = 1; j < points.length; ) {
+				Point q = points[j];
+				double slopePQ = p.slopeTo(q);
+				
+				ArrayList<Point> cur = new ArrayList<>();
+				cur.add(p);
+				cur.add(q);
+				
+				int k = j+1;
+				while (k < points.length && slopePQ == p.slopeTo(points[k])) {
+					cur.add(points[k]);
+					++k;
+				}
+				
+				j = k;
+				
+				if (cur.size() > 3) {
+					for (Point point : cur) {
+						if (!tmp.keySet().contains(point))
+							tmp.put(point, new ArrayList<>());
+						
+						if (!tmp.get(point).contains(slopePQ)) //maybe remove this check
+							tmp.get(point).add(slopePQ);
+					}
+				}
+			}
+		}
+		
+		//--- storage
+		
+		segments = new LineSegment[tmp.size()];
+		//need to transform tmp into LineSegment[]
+		
+		/*int i = 0;
+		
+		for (Line l : tmp.keySet()) {
+			Collections.sort(tmp.get(l));
+			segments[i] = new LineSegment(tmp.get(l).get(0), tmp.get(l).get(tmp.get(l).size()-1));
+			if (segments[i] == null)
+				System.out.println("oktamer");
+		}*/
 	}
 	
 	private double computeOO(Point p1, Point p2) {

@@ -64,11 +64,11 @@ public class Point implements Comparable<Point> {
      * @return the slope between this point and the specified point
      */
     public double slopeTo(Point that) {
-        if (_equals(that))
-        	return Double.NEGATIVE_INFINITY;
-        
-        if (x == that.x)
+    	if (x == that.x) {
+        	if (y == that.y)
+        		return Double.NEGATIVE_INFINITY;
         	return Double.POSITIVE_INFINITY;
+        }
         
         if (y == that.y)
         	return +0.0;
@@ -139,10 +139,6 @@ public class Point implements Comparable<Point> {
     public String toString() {
         /* DO NOT MODIFY */
         return "(" + x + ", " + y + ")";
-    }
-    
-    private boolean _equals(Point that) {
-    	return x == that.x && y == that.y;
     }
 
     /**

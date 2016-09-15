@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class FastCollinearPoints {
-		
+	
 	private final LineSegment[] segments;
 	
 	public FastCollinearPoints(Point[] points) {
@@ -26,7 +26,7 @@ public class FastCollinearPoints {
 			Point p = points[i];
 			Arrays.sort(points, p.slopeOrder());
 			
-			for (int j = i+1; j < points.length; ++j) {
+			for (int j = 1; j < points.length; ) {
 				Point q = points[j];
 				double slopePQ = p.slopeTo(q);
 				
@@ -39,6 +39,8 @@ public class FastCollinearPoints {
 					cur.add(points[k]);
 					++k;
 				}
+				
+				j = k;
 				
 				if (cur.size() > 3) {
 					Point[] curarr = new Point[cur.size()];

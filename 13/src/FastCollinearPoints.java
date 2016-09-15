@@ -180,7 +180,7 @@ public class FastCollinearPoints {
 			Point p = points[i];
 			Arrays.sort(clone, p.slopeOrder());
 			
-			for (int j = 0; j < clone.length; ) {
+			for (int j = 1; j < clone.length; ) {
 				Point q = clone[j];
 				
 				double slopePQ = p.slopeTo(q);

@@ -44,7 +44,7 @@ public class FastCollinearPoints {
 		
 		//--- checks done
 		
-		version3(points);
+		version1(points);
 	}
 	
 	public int numberOfSegments() {
@@ -174,12 +174,15 @@ public class FastCollinearPoints {
 	private void version1(Point[] points) {
 		ArrayList<LineSegment> tmp = new ArrayList<LineSegment>();
 		
+		Point[] clone = points.clone();
+		
 		for (int i = 0; i < points.length; ++i) {
 			Point p = points[i];
-			Arrays.sort(points, p.slopeOrder());
+			Arrays.sort(clone, p.slopeOrder());
 			
-			for (int j = 1; j < points.length; ) {
-				Point q = points[j];
+			for (int j = 0; j < clone.length; ) {
+				Point q = clone[j];
+				
 				double slopePQ = p.slopeTo(q);
 				
 				ArrayList<Point> cur = new ArrayList<>();
@@ -187,8 +190,8 @@ public class FastCollinearPoints {
 				cur.add(q);
 				
 				int k = j+1;
-				while (k < points.length && slopePQ == p.slopeTo(points[k])) {
-					cur.add(points[k]);
+				while (k < clone.length && slopePQ == p.slopeTo(clone[k])) {
+					cur.add(clone[k]);
 					++k;
 				}
 				
@@ -201,8 +204,10 @@ public class FastCollinearPoints {
 					}
 					
 					Arrays.sort(curarr);
-					LineSegment seg = new LineSegment(curarr[0], curarr[curarr.length-1]);
-					tmp.add(seg);
+					if (curarr[0] == p) {
+						LineSegment seg = new LineSegment(p, curarr[curarr.length-1]);
+						tmp.add(seg);
+					}
 				}
 			}
 		}

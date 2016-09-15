@@ -13,7 +13,7 @@ public class PointsWindow {
 		//Point[] points = {new Point(5000, 100), new Point(5000, 1000), new Point(5000, 2000), new Point(5000, 3000), new Point(5000, 4000), new Point(5000, 5000), new Point(5000, 6000)};
 		
 		ArrayList<Point> points = new ArrayList<Point>();
-		String filename = "horizontal5.txt";
+		String filename = "input2000.txt";
 		Scanner in = null;
 		try {
 			in = new Scanner(new File(System.getProperty("user.dir") + "\\collinear-testing\\" + filename));

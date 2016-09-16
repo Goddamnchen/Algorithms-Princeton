@@ -106,8 +106,7 @@ public class Deque<Item> implements Iterable<Item> {
 		return ans.value;
 	}
 	
-	@Override
-	public String toString() {
+	private String _toString() {
 		if (isEmpty())
 			return "EMPTY";
 		
@@ -173,7 +172,7 @@ public class Deque<Item> implements Iterable<Item> {
 		d.addFirst(5);		
 		d.removeLast();d.removeLast();d.removeLast();d.removeFirst();d.removeLast();
 		
-		System.out.println(d.toString());
+		System.out.println(d._toString());
 		
 		for (Integer i : d) {
 			System.out.println(i);

@@ -81,7 +81,12 @@ public class Board {
 	
 	public Board twin() {
 		Board newboard = new Board(blocks);
-		newboard.swap(0, 0, 0, 1);
+		if (newboard.blocks[0][0] > 0 && newboard.blocks[0][1] > 0)
+			newboard.swap(0, 0, 0, 1);
+		else if (newboard.blocks[0][0] == 0)
+			newboard.swap(1, 0, 0, 1);
+		else
+			newboard.swap(0, 0, 1, 0);
 		return newboard;
 	}
 	

@@ -15,6 +15,17 @@ public class Test {
 		System.out.println("Man: " + board1.manhattan());
 		System.out.println("Ham: " + board1.hamming());
 		System.out.println("isGoal: " + board1.isGoal());
+		
+		System.out.println("\n---\n");
 
+		for(Board neigh : board_solved.neighbors()) {
+			System.out.println(neigh + "\n");
+		}
+		
+		System.out.println("\n---\n");
+
+		for(Board neigh : board1.neighbors()) {
+			System.out.println(neigh + "\n");
+		}
 	}
 }

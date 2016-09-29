@@ -63,4 +63,19 @@ public class Board {
 		}
 		return str;
 	}
+	
+	public boolean isGoal() {
+		int k = 1;
+		
+		for (int i = 0; i < n; ++i) {
+			for (int j = 0; j < n; ++j) {
+				if (blocks[i][j] != k && blocks[i][j] != 0) {
+					return false;
+				}
+				++k;
+			}
+		}
+		
+		return true;
+	}
 }

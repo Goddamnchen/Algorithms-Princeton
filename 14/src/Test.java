@@ -6,6 +6,7 @@ public class Test {
 		System.out.println(board_solved);
 		System.out.println("Man: " + board_solved.manhattan());
 		System.out.println("Ham: " + board_solved.hamming());
+		System.out.println("isGoal: " + board_solved.isGoal());
 		
 		System.out.println("\n---\n");
 		
@@ -13,5 +14,7 @@ public class Test {
 		System.out.println(board1);
 		System.out.println("Man: " + board1.manhattan());
 		System.out.println("Ham: " + board1.hamming());
+		System.out.println("isGoal: " + board1.isGoal());
+
 	}
 }

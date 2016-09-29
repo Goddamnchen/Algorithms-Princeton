@@ -2,7 +2,7 @@ import java.util.LinkedList;
 
 public class Board {
 
-	private int[][] blocks;
+	private final int[][] blocks;
 	private final int n;
 	
 	public Board(int[][] _blocks) {

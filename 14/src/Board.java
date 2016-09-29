@@ -6,13 +6,7 @@ public class Board {
 	
 	public Board(int[][] _blocks) {
 		n = _blocks.length;
-		
-		blocks = new int[n][n];
-		for (int i = 0; i < n; ++i) {
-			for (int j = 0; j < n; ++j) {
-				blocks[i][j] = _blocks[i][j];
-			}
-		}
+		blocks = _blocks.clone();
 	}
 	
 	public int dimension() {
@@ -74,6 +68,30 @@ public class Board {
 				}
 				++k;
 			}
+		}
+		
+		return true;
+	}
+	
+	public Board twin() {
+		Board newboard = new Board(blocks.clone());
+		int tmp = newboard.blocks[0][0];
+		newboard.blocks[0][0] = newboard.blocks[0][1];
+		newboard.blocks[0][1] = tmp;
+		return newboard;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Board that = (Board) obj;
+		
+		if (that.n != n)
+			return false;
+		
+		for (int i = 0; i < n; ++i) {
+			for (int j = 0; j < n; ++j)
+				if (blocks[i][j] != that.blocks[i][j])
+					return false;
 		}
 		
 		return true;

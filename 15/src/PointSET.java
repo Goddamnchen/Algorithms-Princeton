@@ -51,6 +51,7 @@ public class PointSET {
 			if (q != p) {
 				if (nn == null) {
 					nn = q;
+					nn_dist = p.distanceSquaredTo(q);
 				} else {
 					double tmp = p.distanceSquaredTo(q);
 					if (tmp < nn_dist) {

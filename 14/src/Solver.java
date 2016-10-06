@@ -1,4 +1,4 @@
-import java.util.Stack;
+import java.util.LinkedList;
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.MinPQ;
@@ -89,10 +89,10 @@ public class Solver {
 		if (!isSolvable())
 			return null;
 		
-		Stack<Board> ans = new Stack<>();
+		LinkedList<Board> ans = new LinkedList<>();
 		Node tmp = sol;
 		while (tmp != null) {
-			ans.push(tmp.board);
+			ans.addFirst(tmp.board);
 			tmp = tmp.prev;
 		}
 		return ans;

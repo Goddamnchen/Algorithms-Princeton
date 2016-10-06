@@ -42,7 +42,7 @@ public class Board {
 			for (int j = 0; j < n; ++j) {
 				if (blocks[i][j] != 0) {
 					int tmp = Math.abs(k - blocks[i][j]);
-					dist += tmp/3 + tmp%3;
+					dist += tmp/n + tmp%n;
 				}
 				++k;
 			}

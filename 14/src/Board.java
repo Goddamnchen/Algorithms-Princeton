@@ -40,9 +40,13 @@ public class Board {
 		
 		for (int i = 0; i < n; ++i) {
 			for (int j = 0; j < n; ++j) {
-				if (blocks[i][j] != 0) {
-					int tmp = Math.abs(k - blocks[i][j]);
-					dist += tmp/n + tmp%n;
+				if (blocks[i][j] != 0 && blocks[i][j] != k) {
+					int dx = (blocks[i][j] - 1)/n;
+                    int dy = (blocks[i][j] - 1) - dx*n;
+                    dist += Math.abs(i - dx) + Math.abs(j - dy);
+					
+					//int tmp = Math.abs(k - blocks[i][j]);
+					//dist += tmp/n + tmp%n;
 				}
 				++k;
 			}

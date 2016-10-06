@@ -101,6 +101,15 @@ public class Board {
 	
 	@Override
 	public boolean equals(Object obj) {
+		if (obj == this)
+            return true;
+		
+        if (obj == null)
+            return false;
+        
+        if (obj.getClass() != getClass())
+        	return obj.toString() == toString();
+		
 		Board that = (Board) obj;
 		
 		if (that.n != n)

@@ -57,12 +57,11 @@ public class Board {
 	
 	@Override
 	public String toString() {
-		String str = "";
+		String str = "" + n + "\n";
 		for (int i = 0; i < n; ++i) {
-			for (int j = 0; j < n-1; ++j) {
-				str += blocks[i][j] + " ";
+			for (int j = 0; j < n; ++j) {
+				str += String.format("%2d ", blocks[i][j]);
 			}
-			str += blocks[i][n-1];
 			if (i < n-1) str += "\n";
 		}
 		return str;

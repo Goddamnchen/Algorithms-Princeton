@@ -1,3 +1,5 @@
-#Algorithms in Java  
-Belkacem Lahouel, 2016  
-belkacem.lahouel@gmail.com
+/******************************************************************
+* Algorithms-Princeton in Java
+* Guanting Chen, 2018
+* This is a Repo for course assignment on Coursera
+******************************************************************/

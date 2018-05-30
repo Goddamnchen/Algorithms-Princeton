@@ -1,9 +1,10 @@
-/***************************************************
+/*****************************************************************
  *   Author: Guanting Chen
  *   Date: 05/29/2018
  *   Union-Find Assignment
- *   Percolation API using by PercolationVisualizer
- ***************************************************/
+ *   Percolation Version 1.0 : Double WQUUF dealing with backwater
+ *   API using by PercolationVisualizer
+ *****************************************************************/
 
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 

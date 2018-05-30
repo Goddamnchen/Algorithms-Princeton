@@ -1,3 +1,4 @@
 *.zip
 Slides
 .DS_Store
+workspace.xml

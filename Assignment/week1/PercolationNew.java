@@ -25,7 +25,7 @@ public class PercolationNew {
      * 1.check indices
      * 2.label a open site (row, col) if it is not open already
      * 3.Get the existing component identifier status of 2 open union sets
-     *   and then merge to a integral union and update the  status of this new union
+     *   and then merge to a integra-l union and update the  status of this new union
      */
     public void open(int row, int col){
         validate(row, col);

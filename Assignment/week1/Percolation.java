@@ -34,7 +34,7 @@ public class Percolation {
      * 1.check indices
      * 2.label a open site (row, col) if it is not open already
      * 3.union surround site
-     * Takes 4logn in worst case
+     * Takes 8logn in worst case
      */
     public void open(int row, int col) {
         validate(row, col);

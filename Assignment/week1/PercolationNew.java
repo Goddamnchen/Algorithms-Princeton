@@ -2,20 +2,29 @@
  *   Author: Guanting Chen
  *   Date: 05/30/2018
  *   Union-Find Assignment
+ *   API using by PercolationVisualizer and PercolationStats
+ *
  *   Percolation Version 2.3 :
  *   1.alter A 2-dimensional status array to TWO SINGLE status array
  *     therefore HALVING the running time!!
+ *
  *   2.refactoring percolates() and open()
+ *
  *   3.add a instance variable neighboursStatus[][] to RETRIEVE Connect Status of neighbor sites
  *     (this variable needs to be initialize to DEFAULT when each open() being called,
  *      It should be initialized before starting union due to former retrieved status inheritance)
+ *
  *   4.refactoring unionConnect not to update every redundant time with each neighbor union operation
+ *
  *   5.have similar runtime as version 1.*
  *
  *   Note: this version DO NOT use Top&Bottom Virtual Site
- *   Question: How much time does initialize a 2-dimensional[n][2] cost?
- *   Answer: n * 2
- *   API using by PercolationVisualizer and PercolationStats
+ *   Scored 100/100 and Get Bonus (memory estimated to be <= 11 n^2 + 128 n + 1024 bytes)
+ *   Estimated : 11.00 n^2 + 0.00 n + 456.00
+ *
+ *   Q: How much time does initialize a 2-dimensional[n][2] cost?
+ *   A: n * 2
+ *
  *****************************************************************************************************/
 
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;

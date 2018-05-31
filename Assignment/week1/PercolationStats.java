@@ -3,7 +3,6 @@ import edu.princeton.cs.algs4.Stopwatch;
 import edu.princeton.cs.algs4.StdStats;
 
 public class PercolationStats {
-    private double[] fractionArray;
     private int trials;
     private double mean;
     private double stddev;
@@ -13,7 +12,7 @@ public class PercolationStats {
         if (n <= 0 || trials <= 0) {
             throw new IllegalArgumentException("Both n :" + n + " and trials: " + trials + "should > 0 ");
         }
-        fractionArray = new double[trials];
+        double[] fractionArray = new double[trials];
         this.trials = trials;
 
         for (int i = 0; i < trials; i++) {
@@ -26,26 +25,17 @@ public class PercolationStats {
             double fraction = perfrom.numberOfOpenSites() / (Math.pow(n, 2));
             fractionArray[i] = fraction;
         }
+        this.mean = StdStats.mean(fractionArray);
+        this.stddev = StdStats.stddev(fractionArray);
     }
     /* sample mean of percolation threshold */
     public double mean() {
-        if (this.mean == 0.0) {
-            this.mean = StdStats.mean(fractionArray);
-            return this.mean;
-        } else {
-            return this.mean;
-        }
-
+        return this.mean;
     }
     /* sample standard deviation of percolation threshold */
     public double stddev() {
-        if (this.stddev == 0.0) {
-            if (this.trials == 1) this.stddev = Double.NaN;
-            else this.stddev = StdStats.stddev(fractionArray);
-            return this.stddev;
-        } else {
-            return this.stddev;
-        }
+        if (this.trials == 1) this.stddev = Double.NaN;
+        return this.stddev;
     }
     /* low  endpoint of 95% confidence interval */
     public double confidenceLo() {

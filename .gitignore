@@ -4,4 +4,4 @@ Slides
 workspace.xml
 *.jar
 .class
-.idea/
+*/.idea

@@ -6,4 +6,4 @@ workspace.xml
 .class
 out
 .iml
-*/.idea
+*.idea/

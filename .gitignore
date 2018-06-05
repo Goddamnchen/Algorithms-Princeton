@@ -4,4 +4,6 @@ Slides
 workspace.xml
 *.jar
 .class
+out
+.iml
 */.idea

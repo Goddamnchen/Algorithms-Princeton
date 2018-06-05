@@ -30,6 +30,8 @@
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class PercolationNew {
+    /* Memory use: 11N ～
+    *  if having a 2-dimensional instead of two single array: 49N～ */
     private WeightedQuickUnionUF site;
     private int size;
     private int nOS;                        //number of Open Sites

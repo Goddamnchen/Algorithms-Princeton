@@ -2,3 +2,6 @@
 Slides
 .DS_Store
 workspace.xml
+*.jar
+.class
+.idea/

@@ -1,9 +1,9 @@
 *.zip
 Slides
-.DS_Store
+*.DS_Store
 workspace.xml
 *.jar
-.class
+*.class
 out
-.iml
-*.idea/
+*.iml
+.idea

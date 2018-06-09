@@ -61,21 +61,24 @@ public class ArrayListDeque<Item> implements Iterable<Item> {
         return new DequeIterator();
     }
 
-    public class DequeIterator implements Iterator<Item>{
+    private class DequeIterator implements Iterator<Item>{
         private int p = first;
         private int count = 0;
-
+        @Override
         public boolean hasNext() {
             if (count < size() ) return true;
+            else if (count == 0) return true;
             else return false;
         }
+        @Override
         public Item next() {
             Item item = arrayDeque[p];
-            if(count > size()) throw new NoSuchElementException("DequeIterator has no more items to iterate");
+            if(size() == 0 || count > size()) throw new NoSuchElementException("DequeIterator has no more items to iterate");
             p = toIndex(p + 1);
             count += 1;
             return item;
         }
+        @Override
         public void remove(){
             throw new UnsupportedOperationException("DequeIterator does not support remove() method");
         }

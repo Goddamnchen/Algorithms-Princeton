@@ -1,6 +1,6 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
-public class TestQueue {
+public class TestDequeandQueue {
     @Test
     public void testArrayListDeque(){
         ArrayListDeque<Integer> stringDeque = new ArrayListDeque<>();
@@ -37,11 +37,23 @@ public class TestQueue {
         expectSize = 0;
         actualSize = stringDeque.size();
         assertEquals(expectSize, actualSize);
-
-
-
-
-
+    }
+    @Test
+    public void testLinkedListDeque(){
+        Deque<Integer> integersDeque = new Deque<>();
+        integersDeque.addFirst(1);
+        integersDeque.addLast(2);
+        integersDeque.addLast(3);
+        integersDeque.addLast(4);
+        integersDeque.addFirst(0);
+        integersDeque.removeLast();
+        integersDeque.removeLast();
+        integersDeque.removeFirst();
+        integersDeque.removeFirst();
+        integersDeque.removeLast();
+        for (int a : integersDeque) {
+            System.out.println(a);
+        }
 
     }
 }

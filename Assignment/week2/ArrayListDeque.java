@@ -2,12 +2,12 @@ import javax.swing.text.html.HTMLDocument;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class Deque<Item> implements Iterable<Item> {
+public class ArrayListDeque<Item> implements Iterable<Item> {
     private int size;
     private int first;
     private int last;
     private Item[] arrayDeque;
-    public Deque() {
+    public ArrayListDeque() {
         this.arrayDeque = (Item[]) new Object[8];
         this.size = 0;
         this.first = 0;

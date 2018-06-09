@@ -2,8 +2,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 public class TestQueue {
     @Test
-    public void testDeque(){
-        Deque<Integer> stringDeque = new Deque<>();
+    public void testArrayListDeque(){
+        ArrayListDeque<Integer> stringDeque = new ArrayListDeque<>();
         stringDeque.addFirst(1);
         stringDeque.addLast(2);
         stringDeque.addLast(3);

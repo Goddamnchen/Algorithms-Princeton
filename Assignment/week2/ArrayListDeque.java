@@ -38,7 +38,7 @@ public class ArrayListDeque<Item> implements Iterable<Item> {
     }
 
     public Item removeFirst() {
-        if (this.size == 0) throw new NoSuchElementException("The Deque is empty, can not remove!");
+        if (isEmpty()) throw new NoSuchElementException("The Deque is empty, can not remove!");
         resize();
         Item returnValue = this.arrayDeque[this.first];
         this.arrayDeque[this.first] = null;
@@ -47,7 +47,7 @@ public class ArrayListDeque<Item> implements Iterable<Item> {
         return returnValue;
     }
     public Item removeLast() {
-        if (this.size == 0) throw new NoSuchElementException("The Deque is empty, can not remove!");
+        if (isEmpty()) throw new NoSuchElementException("The Deque is empty, can not remove!");
         resize();
         Item returnvalue = this.arrayDeque[last];
         this.arrayDeque[this.last] = null;

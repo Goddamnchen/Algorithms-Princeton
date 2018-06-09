@@ -54,6 +54,29 @@ public class TestDequeandQueue {
         for (int a : integersDeque) {
             System.out.println(a);
         }
+    }
+    @Test
+    public void testRandomizedQueue() {
+        RandomizedQueue<Integer> rQueue = new RandomizedQueue<>();
+        rQueue.enqueue(0);
+        rQueue.enqueue(1);
+        rQueue.enqueue(2);
+        rQueue.enqueue(3);
+        rQueue.enqueue(4);
+        rQueue.enqueue(5);
+        for (int a : rQueue) {
+            for (int b : rQueue) {
+                System.out.print(b + " ");
+            }
+            System.out.println();
+        }
+        rQueue.dequeue();
+        rQueue.dequeue();
+        int expectedSize = 4;
+        int actualSize = rQueue.size();
+        assertEquals(expectedSize, actualSize);
+        rQueue.dequeue();
+        rQueue.dequeue();
 
     }
 }

@@ -74,7 +74,7 @@ public class Deque<Item> implements Iterable<Item> {
         this.size += 1;
     }
     public Item removeFirst() {
-        if (this.size == 0) throw new NoSuchElementException("The Deque is empty, can not remove!");
+        if (isEmpty()) throw new NoSuchElementException("The Deque is empty, can not remove!");
         Node prevFirst = this.sentinel.next;
         this.sentinel.next = this.sentinel.next.next;
         this.sentinel.next.prev = this.sentinel;
@@ -82,7 +82,7 @@ public class Deque<Item> implements Iterable<Item> {
         return prevFirst.item;
     }
     public Item removeLast() {
-        if (this.size == 0) throw new NoSuchElementException("The Deque is empty, can not remove!");
+        if (isEmpty()) throw new NoSuchElementException("The Deque is empty, can not remove!");
         Node prevLast = this.sentinel.prev;
         this.sentinel.prev = this.sentinel.prev.prev;
         this.sentinel.prev.next = this.sentinel;

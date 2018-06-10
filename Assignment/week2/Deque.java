@@ -27,13 +27,12 @@ public class Deque<Item> implements Iterable<Item> {
         private int count = 0;
         @Override
         public boolean hasNext() {
-            if (count <= size() ) return true;
-            else if (count == 0) return true;
+            if (count < size() ) return true;
             else return false;
         }
         @Override
         public Item next() {
-            if (size() == 0 || count > size()) throw new NoSuchElementException("DequeIterator has no more items to iterate");
+            if (size() == 0 || !hasNext()) throw new NoSuchElementException("DequeIterator has no more items to iterate");
             Item item = p.next.item;
             p = p.next;
             count += 1;

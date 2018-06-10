@@ -36,7 +36,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
         @Override
         public boolean hasNext() {
-            if (this.index >= 0 || size() == 0) {       //set (size==0) : true to trigger ElementException when iterator a empty queue
+            if (this.index >= 0) {
                 return true;
             } else {
                 return false;
@@ -103,9 +103,6 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
      */
     private int findIndex() {
         int index = StdRandom.uniform(0, this.size);
-        while (queue[index] == null) {
-            index = StdRandom.uniform(0, this.size);
-        }
         return index;
     }
 

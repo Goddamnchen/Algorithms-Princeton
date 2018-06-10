@@ -67,7 +67,6 @@ public class ArrayListDeque<Item> implements Iterable<Item> {
         @Override
         public boolean hasNext() {
             if (count < size() ) return true;
-            else if (count == 0) return true;
             else return false;
         }
         @Override

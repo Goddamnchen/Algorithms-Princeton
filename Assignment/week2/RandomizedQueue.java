@@ -11,6 +11,7 @@
  * Because we enqueue and dequeue at the same side -- Queue[size]
  * and we dequeue by decreasing size THUS queue[size - 1] will pop off
  *
+ * Scored 100/100, Passed all Memory and Timing tests.
  *******************************************************************************************/
 
 
@@ -34,6 +35,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             }
             StdRandom.shuffle(a);
         }
+
         @Override
         public boolean hasNext() {
             if (this.index >= 0) {

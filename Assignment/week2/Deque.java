@@ -24,10 +24,15 @@ public class Deque<Item> implements Iterable<Item> {
 
     private class DequeIterator implements Iterator<Item> {
         private Node p = sentinel;
-        private int count = 0;
+        private int index = 0;
+
+        /**
+         * @return true when index belongs to Deque
+         * @return false when index out of bound
+         */
         @Override
         public boolean hasNext() {
-            if (count < size() ) return true;
+            if (index < size() ) return true;
             else return false;
         }
         @Override
@@ -35,7 +40,7 @@ public class Deque<Item> implements Iterable<Item> {
             if (size() == 0 || !hasNext()) throw new NoSuchElementException("DequeIterator has no more items to iterate");
             Item item = p.next.item;
             p = p.next;
-            count += 1;
+            index += 1;
             return item;
         }
         @Override
